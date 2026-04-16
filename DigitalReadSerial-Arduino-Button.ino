@@ -10,6 +10,7 @@
 
 // digital pin 2 has a pushbutton attached to it. Give it a name:
 int pushButton = 12;
+int RedLED = 3;
 
 // the setup routine runs once when you press reset:
 void setup() {
@@ -17,6 +18,7 @@ void setup() {
   Serial.begin(9600);
   // make the pushbutton's pin an input:
   pinMode(pushButton, INPUT);
+  pinMode(RedLED, OUTPUT);
 }
 
 // the loop routine runs over and over again forever:
@@ -24,6 +26,10 @@ void loop() {
   // read the input pin:
   int buttonState = digitalRead(pushButton);
   // print out the state of the button:
-  Serial.println(buttonState);
+  if(buttonState == HIGH){
+    digitalWrite(RedLED, HIGH);
+    Serial.print ("Button Pushed: ");
+    Serial.println(buttonState);
+  }
   delay(1);  // delay in between reads for stability
 }
