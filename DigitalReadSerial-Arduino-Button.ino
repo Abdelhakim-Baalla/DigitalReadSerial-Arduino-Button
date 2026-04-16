@@ -30,6 +30,9 @@ void loop() {
     digitalWrite(RedLED, HIGH);
     Serial.print ("Button Pushed: ");
     Serial.println(buttonState);
+  }else{
+    digitalWrite(RedLED, LOW);
   }
+
   delay(1);  // delay in between reads for stability
 }
